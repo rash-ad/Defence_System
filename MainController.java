@@ -191,6 +191,7 @@ public class MainController extends javax.swing.JFrame  implements DefenceObserv
 
     private void btnMainControllerSendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMainControllerSendActionPerformed
         String text= txtAreaSend.getText(); 
+        defenceControllerInterface.getMessageMain(txtAreaSend.getText());
        
         
         
@@ -224,7 +225,14 @@ public class MainController extends javax.swing.JFrame  implements DefenceObserv
     @Override
     public void getMessageMain(String message) {
          message=txtAreaSend.getText();
-        
+        try{
+            javax.swing.text.Document doc =txtAreaSend.getDocument();
+             doc.insertString(doc.getLength(),"MainController"+message+"\n",null);
+             txtAreaSend.setCaretPosition(doc.getLength());
+        }catch(javax.swing.text.BadLocationException e){
+            
+            
+        }
         
          
         
