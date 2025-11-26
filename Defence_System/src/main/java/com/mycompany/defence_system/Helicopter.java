@@ -11,7 +11,8 @@ package com.mycompany.defence_system;
 
  class Helicopter extends javax.swing.JFrame implements DefenceObserver {
     private DefenceObservable defenceObservable;
-   
+ 
+    
     private int position;
    
     
@@ -38,14 +39,16 @@ package com.mycompany.defence_system;
 
         jSlider3 = new javax.swing.JSlider();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jTextField2 = new javax.swing.JTextField();
+        txtAreaHelicopter = new javax.swing.JTextArea();
+        txtArea = new javax.swing.JTextField();
         btnSend = new javax.swing.JButton();
         checkBoxPosition = new javax.swing.JCheckBox();
         btnShoot = new javax.swing.JButton();
         btnMissileOperation = new javax.swing.JButton();
         btnTomaHawk = new javax.swing.JButton();
         LableAreaCleared = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextPane1 = new javax.swing.JTextPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAutoRequestFocus(false);
@@ -63,9 +66,9 @@ package com.mycompany.defence_system;
         jSlider3.setInheritsPopupMenu(true);
         jSlider3.setValueIsAdjusting(true);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txtAreaHelicopter.setColumns(20);
+        txtAreaHelicopter.setRows(5);
+        jScrollPane1.setViewportView(txtAreaHelicopter);
 
         btnSend.setText("Send");
         btnSend.addActionListener(new java.awt.event.ActionListener() {
@@ -120,6 +123,8 @@ package com.mycompany.defence_system;
         LableAreaCleared.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         LableAreaCleared.setText("Area Not Cleared");
 
+        jScrollPane2.setViewportView(jTextPane1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -131,7 +136,7 @@ package com.mycompany.defence_system;
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jTextField2)
+                                .addComponent(txtArea)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnSend))
                             .addGroup(layout.createSequentialGroup()
@@ -145,7 +150,10 @@ package com.mycompany.defence_system;
                                         .addComponent(btnShoot, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(btnMissileOperation, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(9, 56, Short.MAX_VALUE)))))
+                                        .addGap(9, 56, Short.MAX_VALUE))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(64, 64, 64)))
                 .addGap(34, 34, 34)
                 .addComponent(jSlider3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -170,17 +178,19 @@ package com.mycompany.defence_system;
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnTomaHawk, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(checkBoxPosition))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(34, 34, 34)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnSend))
                         .addGap(34, 34, 34))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(15, 15, 15)
                         .addComponent(jSlider3, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(54, Short.MAX_VALUE))))
         );
 
         pack();
@@ -219,7 +229,8 @@ package com.mycompany.defence_system;
     }//GEN-LAST:event_checkBoxPositionItemStateChanged
 
     private void btnSendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSendActionPerformed
-        
+         String message="Helicopter :"+btnSend.getText();
+        MainController.setDefenceMessage(message); 
             // TODO add your handling code here:
     }//GEN-LAST:event_btnSendActionPerformed
 
@@ -236,15 +247,24 @@ package com.mycompany.defence_system;
     private javax.swing.JButton btnTomaHawk;
     private javax.swing.JCheckBox checkBoxPosition;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSlider jSlider3;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextPane jTextPane1;
+    private javax.swing.JTextField txtArea;
+    private javax.swing.JTextArea txtAreaHelicopter;
     // End of variables declaration//GEN-END:variables
     
-     public void getMessageMain(String Message){
-         
-     }
-
+     public void getMessageMain(String message) {
+        
+        txtAreaHelicopter.setText(message);
+        txtAreaHelicopter.append(message+"\n");
+        
+    }
+    public void update(int position) {
+      this.position=position;
+      updateButtons();
+      
+    }
     @Override
     public void areaClearLable(boolean clearStatus) {
         if(clearStatus){
@@ -257,7 +277,7 @@ package com.mycompany.defence_system;
     }
 
     @Override
-    public void update(int position) {
+    public void updateButtons() {
         if(checkBoxPosition.isSelected()){
             if(position>60){
                 btnShoot.setEnabled(true);
@@ -299,11 +319,9 @@ package com.mycompany.defence_system;
         }
     }
     
-    @Override
-    public void updateButtons() {
-        
-            
-        }
+    
+    
+    
     }
  
    

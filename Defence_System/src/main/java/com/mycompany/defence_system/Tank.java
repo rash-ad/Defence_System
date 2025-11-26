@@ -143,5 +143,6 @@ public class Tank extends javax.swing.JFrame implements DefenceObserver {
 
     @Override
     public void updateButtons() {
+        
     }
 }

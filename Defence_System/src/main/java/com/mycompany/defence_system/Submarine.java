@@ -12,7 +12,7 @@ package com.mycompany.defence_system;
  class Submarine extends javax.swing.JFrame implements  DefenceObserver{
     private DefenceObservable defenceObservable;
     private int position;
-
+    
     
     /**
      * Creates new form Submarine
@@ -190,7 +190,8 @@ package com.mycompany.defence_system;
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
+        String message="Submarine :"+txtSendSubmarine.getText();
+        MainController.setDefenceMessage(message);        // TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void txtSendSubmarineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSendSubmarineActionPerformed
