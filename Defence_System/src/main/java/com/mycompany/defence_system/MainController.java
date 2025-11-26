@@ -270,7 +270,12 @@ public class MainController extends javax.swing.JFrame  implements DefenceObserv
         }
     }
         
-   
+    @Override
+    public void areaClearLable(boolean clearStatus) {
+       if(clearStatus){
+           
+       }
+    }
     
     @Override
     public void update(int position) {
