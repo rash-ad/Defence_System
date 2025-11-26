@@ -34,6 +34,7 @@ public class MainController extends javax.swing.JFrame  implements DefenceObserv
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollBar1 = new javax.swing.JScrollBar();
         jComboBox1 = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         checkBoxAreaCleared = new javax.swing.JCheckBox();
@@ -43,11 +44,13 @@ public class MainController extends javax.swing.JFrame  implements DefenceObserv
         btnMainControllerSend = new javax.swing.JButton();
         jSliderMainController = new javax.swing.JSlider();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        tcxtAreaSubmarine = new javax.swing.JTextArea();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextArea3 = new javax.swing.JTextArea();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTextArea4 = new javax.swing.JTextArea();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        txtPane = new javax.swing.JTextPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -89,9 +92,9 @@ public class MainController extends javax.swing.JFrame  implements DefenceObserv
             }
         });
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane2.setViewportView(jTextArea2);
+        tcxtAreaSubmarine.setColumns(20);
+        tcxtAreaSubmarine.setRows(5);
+        jScrollPane2.setViewportView(tcxtAreaSubmarine);
 
         jTextArea3.setColumns(20);
         jTextArea3.setRows(5);
@@ -101,6 +104,8 @@ public class MainController extends javax.swing.JFrame  implements DefenceObserv
         jTextArea4.setRows(5);
         jScrollPane4.setViewportView(jTextArea4);
 
+        jScrollPane5.setViewportView(txtPane);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -109,14 +114,16 @@ public class MainController extends javax.swing.JFrame  implements DefenceObserv
                 .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 446, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(107, 107, 107)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jCheckBox2)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(15, 15, 15))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jComboBox1, 0, 291, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(77, 77, 77)
@@ -145,8 +152,13 @@ public class MainController extends javax.swing.JFrame  implements DefenceObserv
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jComboBox1)
                             .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -211,19 +223,22 @@ public class MainController extends javax.swing.JFrame  implements DefenceObserv
     private javax.swing.JButton jButton1;
     private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSlider jSliderMainController;
-    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextArea jTextArea4;
-    private javax.swing.JTextArea txtAreaSend;
+    private static javax.swing.JTextArea tcxtAreaSubmarine;
+    public static javax.swing.JTextArea txtAreaSend;
+    private javax.swing.JTextPane txtPane;
     // End of variables declaration//GEN-END:variables
 
     @Override
-    public void getMessageMain(String message) {
+    public  void getMessageMain(String message) {
          message=txtAreaSend.getText();
         try{
             javax.swing.text.Document doc =txtAreaSend.getDocument();
@@ -237,13 +252,25 @@ public class MainController extends javax.swing.JFrame  implements DefenceObserv
          
         
      }
-
-    @Override
-    public void areaClearLable(boolean clearStatus) {
-       if(clearStatus){
-           
-       }
+    
+    public void updateInbox(){
+        
+        tcxtAreaSubmarine.setText("");
     }
+    
+    public  static void setDefenceMessage(String text){
+        try{
+            
+            javax.swing.text.Document doc= tcxtAreaSubmarine.getDocument();
+            doc.insertString(doc.getLength(), text + "\n",null);
+            
+        }
+        catch(javax.swing.text.BadLocationException b){
+            
+        }
+    }
+        
+   
     
     @Override
     public void update(int position) {
